@@ -1,0 +1,8 @@
+{
+  "name": "Nearest Plane",
+  "short_name": "NearestPlane",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#03060e",
+  "theme_color": "#07101f"
+}

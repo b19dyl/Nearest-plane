@@ -7,6 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Nearest Plane">
+  <link rel="manifest" href="manifest.webmanifest">
   <title>Nearest Plane</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,6 +17,7 @@
     <div class="brand"><span class="brand-icon">✈</span><span>Nearest Plane</span></div>
     <nav class="tabs" aria-label="Display screens">
       <button class="tab active" data-view="nearest">Nearest</button>
+      <button class="tab" data-view="radar">Radar</button>
       <button class="tab" data-view="nearby">Nearby</button>
       <button class="tab" data-view="weather">MAN Weather</button>
       <button class="tab" data-view="stats">Stats</button>
@@ -52,7 +54,7 @@
       <strong><span id="refreshValue">30</span> seconds</strong>
       <input id="refreshInput" type="range" min="15" max="120" step="15" value="30">
     </label>
-    <div class="dialog-actions">
+    <label>Theme<select id="themeInput"><option value="airport">Airport blue</option><option value="amber">Classic amber</option><option value="green">Radar green</option></select></label><div class="dialog-actions">
       <button value="cancel">Cancel</button>
       <button id="saveSettings" value="default">Save</button>
     </div>
