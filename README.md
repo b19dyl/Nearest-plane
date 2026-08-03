@@ -1,23 +1,11 @@
-# Nearest Plane
+# Nearest Plane — fixed version
 
-A lightweight iPad-friendly live nearest-aircraft display.
+This version uses the Airplanes.live browser-accessible point endpoint.
 
-## Files
+Upload these three files to the root of your GitHub repository:
 
-- `index.html`
-- `style.css`
-- `script.js`
+- index.html
+- style.css
+- script.js
 
-## Uploading to GitHub
-
-Upload all three files to the root of the `Nearest-plane` repository. Keep the names exactly as shown.
-
-GitHub Pages will then serve `index.html` automatically.
-
-## iPad
-
-Open the GitHub Pages address in Safari, allow location access, then use:
-
-Share → Add to Home Screen
-
-The display uses live aircraft data from the public adsb.lol API.
+Choose **Replace** when GitHub asks about files with the same names, then commit the changes.

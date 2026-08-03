@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const API_BASE = "https://api.adsb.lol/v2";
+  const API_BASE = "https://api.airplanes.live/v2";
 
   const airlineNames = {
     BAW: "British Airways",
@@ -163,8 +163,8 @@
 
     try {
       const endpoint =
-        `${API_BASE}/lat/${locationData.latitude}` +
-        `/lon/${locationData.longitude}/dist/${settings.radius}`;
+        `${API_BASE}/point/${locationData.latitude}` +
+        `/${locationData.longitude}/${settings.radius}`;
 
       const response = await fetch(endpoint, { cache: "no-store" });
 
@@ -173,7 +173,10 @@
       }
 
       const data = await response.json();
-      const aircraft = (Array.isArray(data.ac) ? data.ac : [])
+      const aircraftList = Array.isArray(data.ac) ? data.ac :
+        (Array.isArray(data.aircraft) ? data.aircraft : []);
+
+      const aircraft = aircraftList
         .map(normaliseAircraft)
         .filter(Boolean)
         .filter(item => item.distance <= settings.radius)
