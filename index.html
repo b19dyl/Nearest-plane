@@ -7,69 +7,57 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Nearest Plane">
-  <meta name="description" content="A live nearest-aircraft display for iPad.">
   <title>Nearest Plane</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-icon" aria-hidden="true">✈</span>
-        <span>Nearest Plane</span>
-      </div>
-      <div class="live-status">
-        <span class="live-dot"></span>
-        <span id="statusText">Starting…</span>
-      </div>
-    </header>
+<main class="app">
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">✈</span><span>Nearest Plane</span></div>
+    <nav class="tabs" aria-label="Display screens">
+      <button class="tab active" data-view="nearest">Nearest</button>
+      <button class="tab" data-view="nearby">Nearby</button>
+      <button class="tab" data-view="weather">MAN Weather</button>
+      <button class="tab" data-view="stats">Stats</button>
+    </nav>
+    <div class="live-status"><span class="live-dot"></span><span id="statusText">Starting…</span></div>
+  </header>
 
-    <section class="unit" aria-live="polite">
-      <div class="display">
-        <div id="aircraftPanel">
-          <div class="message">
-            Allow location access to find the nearest live aircraft.
-          </div>
-        </div>
-      </div>
-      <div class="unit-footer">
-        <span>NEARESTPLANE</span>
-        <span id="clock">--:--</span>
-      </div>
-    </section>
+  <section class="unit">
+    <div class="display" id="display">
+      <div class="message">Allow location access to find nearby aircraft.</div>
+    </div>
+    <div class="unit-footer"><span>NEARESTPLANE</span><span id="clock">--:--</span></div>
+  </section>
 
-    <footer class="controls">
-      <span id="updatedText">Waiting for location</span>
-      <div>
-        <button id="refreshButton" type="button">Refresh</button>
-        <button id="settingsButton" type="button">Settings</button>
-      </div>
-    </footer>
-  </main>
+  <footer class="controls">
+    <span id="updatedText">Waiting for location</span>
+    <div>
+      <a class="button-link" href="https://www.manchesterairport.co.uk/arrivals/" target="_blank" rel="noopener">MAN Arrivals</a>
+      <a class="button-link" href="https://www.manchesterairport.co.uk/departures/" target="_blank" rel="noopener">MAN Departures</a>
+      <button id="refreshButton">Refresh</button>
+      <button id="settingsButton">Settings</button>
+    </div>
+  </footer>
+</main>
 
-  <dialog id="settingsDialog">
-    <form method="dialog">
-      <h2>Display settings</h2>
-
-      <label>
-        Search radius
-        <strong><span id="radiusValue">75</span> nautical miles</strong>
-        <input id="radiusInput" type="range" min="10" max="200" step="5" value="75">
-      </label>
-
-      <label>
-        Refresh every
-        <strong><span id="refreshValue">30</span> seconds</strong>
-        <input id="refreshInput" type="range" min="15" max="120" step="15" value="30">
-      </label>
-
-      <div class="dialog-actions">
-        <button value="cancel">Cancel</button>
-        <button id="saveSettings" value="default">Save</button>
-      </div>
-    </form>
-  </dialog>
-
-  <script src="script.js"></script>
+<dialog id="settingsDialog">
+  <form method="dialog">
+    <h2>Display settings</h2>
+    <label>Search radius
+      <strong><span id="radiusValue">75</span> nautical miles</strong>
+      <input id="radiusInput" type="range" min="10" max="200" step="5" value="75">
+    </label>
+    <label>Refresh every
+      <strong><span id="refreshValue">30</span> seconds</strong>
+      <input id="refreshInput" type="range" min="15" max="120" step="15" value="30">
+    </label>
+    <div class="dialog-actions">
+      <button value="cancel">Cancel</button>
+      <button id="saveSettings" value="default">Save</button>
+    </div>
+  </form>
+</dialog>
+<script src="script.js"></script>
 </body>
 </html>
