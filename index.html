@@ -1,1 +1,75 @@
-<!doctype html><html><body><h1>Nearest Plane Starter</h1></body></html>
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#040812">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Nearest Plane">
+  <meta name="description" content="A live nearest-aircraft display for iPad.">
+  <title>Nearest Plane</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">✈</span>
+        <span>Nearest Plane</span>
+      </div>
+      <div class="live-status">
+        <span class="live-dot"></span>
+        <span id="statusText">Starting…</span>
+      </div>
+    </header>
+
+    <section class="unit" aria-live="polite">
+      <div class="display">
+        <div id="aircraftPanel">
+          <div class="message">
+            Allow location access to find the nearest live aircraft.
+          </div>
+        </div>
+      </div>
+      <div class="unit-footer">
+        <span>NEARESTPLANE</span>
+        <span id="clock">--:--</span>
+      </div>
+    </section>
+
+    <footer class="controls">
+      <span id="updatedText">Waiting for location</span>
+      <div>
+        <button id="refreshButton" type="button">Refresh</button>
+        <button id="settingsButton" type="button">Settings</button>
+      </div>
+    </footer>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form method="dialog">
+      <h2>Display settings</h2>
+
+      <label>
+        Search radius
+        <strong><span id="radiusValue">75</span> nautical miles</strong>
+        <input id="radiusInput" type="range" min="10" max="200" step="5" value="75">
+      </label>
+
+      <label>
+        Refresh every
+        <strong><span id="refreshValue">30</span> seconds</strong>
+        <input id="refreshInput" type="range" min="15" max="120" step="15" value="30">
+      </label>
+
+      <div class="dialog-actions">
+        <button value="cancel">Cancel</button>
+        <button id="saveSettings" value="default">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
